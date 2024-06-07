@@ -24,19 +24,19 @@
       <div class="space-x-2 space-y-2">
         <IButton>
           <template #icon>
-            <Save/>
+            <Save />
           </template>
           Icon
         </IButton>
         <IButton type="success">
           <template #icon>
-            <Save/>
+            <Save />
           </template>
           Icon + Type
         </IButton>
         <IButton type="success" size="small">
           <template #icon>
-            <Save/>
+            <Save />
           </template>
           Icon + Type + Size
         </IButton>
@@ -50,7 +50,7 @@
         <IButton type="success" size="small" round>Round + Type + Size</IButton>
         <IButton type="success" round>
           <template #icon>
-            <Save/>
+            <Save />
           </template>
           Round + Type + Size + Icon
         </IButton>
@@ -64,7 +64,7 @@
         <IButton type="success" size="small" disabled>Disabled + Type + Size</IButton>
         <IButton type="success" disabled>
           <template #icon>
-            <Save/>
+            <Save />
           </template>
           Disabled + Type + Size + Icon
         </IButton>
@@ -77,7 +77,7 @@
         <IButton type="success" circle>2</IButton>
         <IButton type="success" circle>
           <template #icon>
-            <Save/>
+            <Save />
           </template>
         </IButton>
       </div>
@@ -89,10 +89,10 @@
         <IButton type="success" loading>Loading + Type</IButton>
         <IButton type="success" size="small" loading>Loading + Type + Size</IButton>
         <IButton type="success">
-          <template #loading>
-            <Save/>
+          <template #icon>
+            <Save />
           </template>
-          Custom Loading
+          Disabled + Type + Size + Icon
         </IButton>
       </div>
     </ICard>
@@ -110,21 +110,35 @@
         <IButton color="teal">Teal</IButton>
       </div>
     </ICard>
+    <ICard body-class="pt-3">
+      <template #title>Color</template>
+      <div class="space-x-2 space-y-2">
+        <JButton color="red" @click="clickEmit">
+          <template #icon>
+            <Save />
+          </template>
+          Disabled
+        </JButton>
+      </div>
+    </ICard>
+    <ICard body-class="pt-3">
+      <template #title>JSelect</template>
+      <div class="space-x-2 space-y-2">
+        <JSelect></JSelect>
+      </div>
+    </ICard>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import ICard from '@/ui/card/card.vue'
-import IButton from '@/ui/button/button.vue'
-import { Save } from 'lucide-vue-next'
+<script setup>
+import { defineComponent } from 'vue';
+import ICard from '@/ui/card/card.vue';
+import IButton from '@/ui/button/button.vue';
+import { Save } from 'lucide-vue-next';
+import JButton from '@/components/common/JButton.vue';
+import JSelect from '@/components/common/JSelect.vue';
 
-export default defineComponent({
-  name: 'ButtonHome',
-  components: {
-    IButton,
-    ICard,
-    Save
-  }
-})
+const clickEmit = (e) => {
+  console.log('触发按钮', e);
+};
 </script>
